@@ -9,6 +9,5 @@
   roles:
   - role: paralect.grafana
       # Variables below are configuraed using vars/credentials.yml & vars/main.yml
+      # A password for admin user. You need it to login to the grafana.
       # gf_admin_password:
-      # mongo_connection:
-      # redis_connection:
