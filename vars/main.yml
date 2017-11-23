@@ -1,0 +1,4 @@
+# api domain name used by telegraf
+api_domain_name:
+# ip address of server where influx is installed
+influx_ip:

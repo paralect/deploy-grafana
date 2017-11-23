@@ -1,0 +1,14 @@
+---
+- name: Deploy grafana to monitoring server
+  hosts: monitoring
+  become: true
+  become_user: root
+  vars_files:
+    - "vars/credentials.yml"
+    - "vars/main.yml"
+  roles:
+  - role: paralect.grafana
+      # Variables below are configuraed using vars/credentials.yml & vars/main.yml
+      # gf_admin_password:
+      # mongo_connection:
+      # redis_connection:
