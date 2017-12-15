@@ -32,6 +32,7 @@ For Grafana installation [paralect.grafana](https://galaxy.ansible.com/paralect/
 3. Set monitoring server ip variable or domain name in `vars/main.yml` (`influx_ip` variable).
 4. Rename `credentials-template.yml` into `credentials.yml` and update the following variables:
   - `gf_admin_password` - a password for admin user. You need it to login to the grafana.
+  - `data_source_name` - name of the storage backends for your time series data (Data Source)
   - `influx_db_name` - influx database name
   - `mongo_connection` - mongo connection string, used by telegraf to monitor count of operations. Examples:
     * mongodb://user:auth_key@10.10.3.30:27017
