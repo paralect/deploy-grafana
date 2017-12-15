@@ -4,8 +4,6 @@
   become: true
   become_user: root
   gather_facts: False
-  vars_files:
-    - ["vars/main.yml"]
   tasks:
     - name: Assures influxdb directories exists
       file: path=/etc/influxdb state=directory
@@ -17,7 +15,7 @@
         - influxdb
 
     - name: Copy configurations
-      template: src="../config/influxdb/influxdb.conf"
+      template: src="config/influxdb/influxdb.conf"
                 dest="/etc/influxdb/influxdb.conf"
                 owner=root
                 group=root

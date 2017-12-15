@@ -1,2 +1,0 @@
-# Ip address of server where influx is installed, used by telegraf
-influx_ip:

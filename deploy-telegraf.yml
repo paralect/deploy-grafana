@@ -4,8 +4,6 @@
   become_user: root
   become: true
   gather_facts: False
-  vars_files:
-    - "vars/main.yml"
   tasks:
     - name: Assures grafana directories exists
       file: path=/etc/telegraf state=directory

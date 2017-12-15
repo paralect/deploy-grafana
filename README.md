@@ -16,7 +16,7 @@ Deployment to remove server is done using [Ansible](https://www.ansible.com/) - 
 2. Installation of [Grafana](https://github.com/grafana/grafana), [InfluxDb](https://github.com/influxdata/influxdb) and [Telegraf](https://github.com/influxdata/telegraf)
 3. Running Grafana, InfluxDb, Telegraf inside Docker containers
 
-Prerequisites:
+### Prerequisites:
 
 1. [Ansible](http://docs.ansible.com/ansible/intro_installation.html)
 2. Ubuntu 16.04 server & ssh access to that server
@@ -29,8 +29,7 @@ For Grafana installation [paralect.grafana](https://galaxy.ansible.com/paralect/
   - ```monitoring``` is ip of the server where you are planing to deploy grafana
   - ```server``` is ip of server where you application is located, used with telegraf
 2. Install Ansible role dependencies with one command: `./bin/install-ansible-dependencies.sh`
-3. Set monitoring server ip variable or domain name in `vars/main.yml` (`influx_ip` variable).
-4. Rename `credentials-template.yml` into `credentials.yml` and update the following variables:
+3. Rename `credentials-template.yml` into `credentials.yml` and update the following variables:
   - `gf_admin_password` - a password for admin user. You need it to login to the grafana.
   - `data_source_name` - name of the storage backends for your time series data (Data Source)
   - `influx_db_name` - influx database name
