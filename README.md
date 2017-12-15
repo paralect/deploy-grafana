@@ -8,7 +8,7 @@ Below we describe in details how to:
 
 *If you plan to use Grafana monitoring for your product feel free to copy this repository to your project and change variables as needed.*
 
-### Deploying production ready Drone CI to the Ubuntu 16.04
+### Requirements
 
 Deployment to remove server is done using [Ansible](https://www.ansible.com/) - a simple automation tool. Deployment was tested on a brand new Digital Ocean Ubuntu 16.04 server. Some changes might required to run other linux distributives. Deployment steps includes:
 

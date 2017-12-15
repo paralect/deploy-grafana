@@ -11,3 +11,5 @@
       # Variables below are configuraed using vars/credentials.yml & vars/main.yml
       # A password for admin user. You need it to login to the grafana.
       # gf_admin_password:
+      # Name of the storage backends for your time series data (Data Source)
+      # data_source_name:
