@@ -52,7 +52,7 @@ Once you done all above, run the following command:
 If you would like to install telegraf - just run following command:
 
 ```
-./bin/setup-telegraf.sh
+./bin/deploy-telegraf.sh
 ```
 
 ### License

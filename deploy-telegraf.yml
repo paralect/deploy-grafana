@@ -1,16 +1,18 @@
 ---
 - name: Deploy Telegraf
-  hosts: server
+  hosts: app
   become_user: root
   become: true
   gather_facts: False
+  vars_files:
+    - "vars/credentials.yml"
   tasks:
     - name: Assures grafana directories exists
       file: path=/etc/telegraf state=directory
       tags:
         - telegraf
     - name: Copy telegraf configurations
-      template: src="../config/telegraf/telegraf.conf.j2"
+      template: src="config/telegraf/telegraf.conf.j2"
                 dest="/etc/telegraf/telegraf.conf"
                 owner=root
                 group=root
@@ -19,7 +21,7 @@
 
     - name: run telegraf via docker
       docker:
-        name: telegarf
+        name: telegraf
         image: telegraf
         state: started
         restart_policy: always
