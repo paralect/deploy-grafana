@@ -70,7 +70,7 @@
   logfile = ""
 
   ## Override default hostname, if empty use os.Hostname()
-  hostname = ""
+  hostname = "{{hostname}}"
   ## If set to true, do no set the "host" tag in the telegraf agent.
   omit_hostname = false
 
@@ -85,7 +85,7 @@
   ## Multiple urls can be specified as part of the same cluster,
   ## this means that only ONE of the urls will be written to each interval.
   # urls = ["udp://localhost:8089"] # UDP endpoint example
-  urls = ["http://{{ hostvars.monitoring.ansible_ssh_host }}:8086"] # required
+  urls = ["{{ influxdb_connection }}"] # required
   ## The target database for metrics (telegraf will create it if not exists).
   database = "{{ influx_db_name }}" # required
 
@@ -97,8 +97,8 @@
   ## Write timeout (for the InfluxDB client), formatted as a string.
   ## If not provided, will default to 5s. 0s means no timeout (not recommended).
   timeout = "5s"
-  # username = basic_auth_user
-  # password = basic_auth_pass
+  username = "{{influx_user}}"
+  password = "{{influx_user_password}}"
   ## Set the user agent for HTTP POSTs (can be useful for log differentiation)
   # user_agent = "telegraf"
   ## Set UDP payload size, defaults to InfluxDB UDP Client default (512 bytes)
@@ -1257,9 +1257,9 @@
 
 
 # # TCP or UDP 'ping' given url and collect response time in seconds
-[[inputs.net_response]]
+# [[inputs.net_response]]
 #   ## Protocol, must be "tcp" or "udp"
-  protocol = "tcp"
+#  protocol = "tcp"
 #   ## Server address (default localhost)
 #  address = "api_domain_name:443"
 #   ## Set timeout
@@ -1272,13 +1272,13 @@
 #   ## Set read timeout (only used if expecting a response)
 #   read_timeout = "1s"
 
-[[inputs.net_response]]
+# [[inputs.net_response]]
 #   ## Protocol, must be "tcp" or "udp"
 #  protocol = "tcp"
 #   ## Server address (default localhost)
 #  address = "landing_domain_name:443"
 #   ## Set timeout
-  timeout = "5s"
+#  timeout = "5s"
 
 # # Read TCP metrics such as established, time wait and sockets counts.
 # [[inputs.netstat]]
