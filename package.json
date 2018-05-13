@@ -1,0 +1,13 @@
+{
+  "name": "deploy-grafana",
+  "description": "Stack is a set of components which help ship better products faster 🚀",
+  "author": "Paralect",
+  "license": "MIT",
+  "devDependencies": {
+    "all-contributors-cli": "4.11.1"
+  },
+  "scripts": {
+    "add-contributor": "all-contributors add",
+    "generate-contributors": "all-contributors generate"
+  }
+}

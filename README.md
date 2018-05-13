@@ -1,74 +1,48 @@
 ## Deploy grafana and influxdb
 
-Below we describe in details how to:
+[![Stack](https://raw.githubusercontent.com/paralect/stack/master/stack-component-template/stack.png)](https://github.com/paralect/stack)
 
-1. Install [Grafana](https://github.com/grafana/grafana)
-2. Install [InfluxDb](https://github.com/influxdata/influxdb), which is used as datasourse with Grafana
-3. Install [Telegraf](https://github.com/influxdata/telegraf) to collect server metrics.
+[![All Contributors](https://img.shields.io/badge/all_contributors-2-orange.svg?style=flat-square)](#contributors)
+[![license](https://img.shields.io/github/license/mashape/apistatus.svg?style=flat-square)](LICENSE)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
 
-*If you plan to use Grafana monitoring for your product feel free to copy this repository to your project and change variables as needed.*
+[![Watch on GitHub](https://img.shields.io/github/watchers/paralect/deploy-grafana.svg?style=social&label=Watch)](https://github.com/paralect/deploy-grafana/watchers)
+[![Star on GitHub](https://img.shields.io/github/stars/paralect/deploy-grafana.svg?style=social&label=Stars)](https://github.com/paralect/deploy-grafana/stargazers)
+[![Follow](https://img.shields.io/twitter/follow/paralect.svg?style=social&label=Follow)](https://twitter.com/paralect)
+[![Tweet](https://img.shields.io/twitter/url/https/github.com/paralect/deploy-grafana.svg?style=social)](https://twitter.com/intent/tweet?text=Deploy%20Drone%20CI%20to%20enable%20continuous%20integration%20on%20your%20product%20via%20https://github.com/paralect/deploy-grafana)
 
-### Requirements
+[Grafana](https://grafana.com/) is an open source, feature rich metrics dashboard and graph editor for Graphite, Elasticsearch, OpenTSDB, Prometheus and InfluxDB. It is lightweight, stupidly simple, free & [Docker](https://www.docker.com/) based. 
 
-Deployment to remote server is done using [Ansible](https://www.ansible.com/) - a simple automation tool. Deployment was tested on a brand new Digital Ocean Ubuntu 16.04 server. Some changes might required to run other linux distributives. Deployment steps includes:
+## Features
 
-1. Docker installation
-2. Installation of [Grafana](https://github.com/grafana/grafana), [InfluxDb](https://github.com/influxdata/influxdb) and [Telegraf](https://github.com/influxdata/telegraf)
-3. Running Grafana, InfluxDb, Telegraf inside Docker containers
+* 👌 **Setup** with a single command. 
+* ️⚡️️ **Production deployment** automation behind [Nginx](https://nginx.org/en/) proxy.
 
-### Prerequisites:
+## Getting Started
 
-1. [Ansible](http://docs.ansible.com/ansible/intro_installation.html)
-2. Ubuntu 16.04 server & ssh access to that server
+- [Deploy to production](SETUP.md).
 
-## Installation steps
+## Change Log
 
-For Grafana installation [paralect.grafana](https://galaxy.ansible.com/paralect/grafana/) Ansible role is used.
+This project adheres to [Semantic Versioning](http://semver.org/).
+Every release is documented on the Github [Releases](https://github.com/paralect/deploy-drone/releases) page.
 
-1. Update hosts file
-  - ```monitoring``` is ip of the server where you are planing to deploy grafana
-  - ```server``` is ip of server where you application is located, used with telegraf
-2. Install Ansible role dependencies with one command: `./bin/install-ansible-dependencies.sh`
-3. Rename `credentials-template.yml` into `credentials.yml` and update the following variables:
-  - `gf_admin_user` - username for admin user. You need it to login to the grafana.
-  - `gf_admin_password` - a password for admin user. You need it to login to the grafana.
-  - `postgres_user` - username for admin user for PostgreSQL. Grafana uses PostgreSQL to store data.
-  - `postgres_password` - password for admin user for PostgreSQL.
-  - `influx_admin_user` - influxDB admin username.
-  - `influx_admin_password` - influxDB admin password.
-  - `influx_user` - influxDB username of the user with read and write permissions. Telegraf uses this user.
-  - `influx_user_password` - influxDB password of the user with read and write permissions
-  - `influx_read_user` - influxDB username of the user with read permissions. Grafana uses this user.
-  - `influx_read_user_password` - influxDB password of the user with read permissions.
-4. Update variables in the `main.yml` file
-  - `app_name` - application name. Used in nginx
-  - `hostname` - field `host` in telegraf data
-  - `gf_domain` - domain name for grafana
-  - `postgres_db_name` - PostgreSQL database name
-  - `data_source_name` - name of the storage backends for your time series data (Data Source)
-  - `influx_db_name` - influx database name
-  - `mongo_connection` - mongo connection string, used by telegraf to monitor count of operations. Examples:
-    * mongodb://user:auth_key@10.10.3.30:27017
-    * mongodb://10.10.3.33:18832
-    * 10.0.0.1:10000
-  - `redis_connection` - redis connection string, used by telegraf to monitor count of operations. Examples:
-    * tcp://localhost:6379
-    * tcp://:password@192.168.99.100
-    * unix:///var/run/redis.sock
+## License
 
-Once you done all above, run the following command:
-```
-./bin/setup-server.sh && ./bin/deploy-influxdb.sh && ./bin/deploy-grafana.sh ./bin/deploy-nginx.sh
-```
+Deploy Drone is released under the [MIT License](LICENSE).
 
-### Setting up Telegraf to collect data
+## Contributing
 
-If you would like to install telegraf - just run following command:
+Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests to us.
 
-```
-./bin/deploy-telegraf.sh
-```
+## Contributors
 
-### License
+Thanks goes to these wonderful people ([emoji key](https://github.com/kentcdodds/all-contributors#emoji-key)):
 
-MIT
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore -->
+| [<img src="https://avatars1.githubusercontent.com/u/11842784?v=4" width="100px;"/><br /><sub><b>Anastasia Kostyukova</b></sub>](https://github.com/nastya-kostyukova)<br />[💻](https://github.com/paralect/ship/commits?author=nastya-kostyukova "Code") [📖](https://github.com/paralect/ship/commits?author=nastya-kostyukova "Documentation") [🤔](#ideas-nastya-kostyukova "Ideas, Planning, & Feedback") | [<img src="https://avatars2.githubusercontent.com/u/6461311?v=4" width="100px;"/><br /><sub><b>Evgeny Zhivitsa</b></sub>](https://github.com/ezhivitsa)<br />[💻](https://github.com/paralect/ship/commits?author=ezhivitsa "Code") [📖](https://github.com/paralect/ship/commits?author=ezhivitsa "Documentation") [🤔](#ideas-ezhivitsa "Ideas, Planning, & Feedback") |
+| :---: | :---: |
+<!-- ALL-CONTRIBUTORS-LIST:END -->
+
+This project follows the [all-contributors](https://github.com/kentcdodds/all-contributors) specification. Contributions of any kind welcome!
