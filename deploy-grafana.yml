@@ -36,7 +36,7 @@
         - grafana
 
     - name: Copy dashboard
-      template: src="./config/grafana/dashboards.json"
+      template: src="./config/grafana/dashboards.json.j2"
                 dest="/var/lib/grafana/dashboards/dashboards.json"
                 owner=root
                 group=root
