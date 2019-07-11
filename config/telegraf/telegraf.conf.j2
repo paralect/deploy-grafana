@@ -929,7 +929,7 @@
 #   # address = "127.0.0.1:7634"
 #   # devices = ["sda", "*"]
 
-{% if urls|length > 1 %}
+{% if urls|length > 0 %}
 # # HTTP/HTTPS request given an address a method and a timeout
 [[inputs.http_response]]
   ## Server address (default http://localhost)
