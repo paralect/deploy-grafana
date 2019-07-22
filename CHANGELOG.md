@@ -1,4 +1,8 @@
-## v1.1.0 (2018-05-17)
+## v1.1.1 (2019-07-12)
+
+* Fix hosts and dashboard template
+
+## v1.1.0 (2019-07-04)
 
 * Adjust config generation
 * Update deploy workflow and dependencies
